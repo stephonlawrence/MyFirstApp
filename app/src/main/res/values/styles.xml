@@ -4,5 +4,23 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <!-- Help from: http://www.sherif.mobi/2012/12/applying-style-to-views-dynamically-in.html -->
+
+    <attr name="ButtonsStyle" format="reference" />
+    <attr name="LastButton" format="reference" />
+
+    <style name="ButtonsStyle" parent="@android:style/Widget.Button">
+        <item name="android:buttonStyle">@android:style/Widget.Button</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginBottom">25px</item>
+        <item name="android:background">@android:drawable/btn_default<!--#8C9EFF--></item>
+    </style>
+
+    <style name="LastButton" parent="ButtonsStyle">
+        <item name="android:background">@android:drawable/btn_default<!--#536DFE--></item>
+    </style>
 
 </resources>

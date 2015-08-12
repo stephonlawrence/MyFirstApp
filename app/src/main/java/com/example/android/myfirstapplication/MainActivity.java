@@ -17,6 +17,7 @@ import android.content.Context;
 import android.widget.Button;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
+import android.graphics.drawable.Drawable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,21 +72,15 @@ public class MainActivity extends AppCompatActivity {
     public void createButtons(){
         LinearLayout LL = (LinearLayout) findViewById(R.id.layout);
 
-        LinearLayout.LayoutParams LP = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-
-        LP.setMargins(0,0,0,25);
         for(int i = 0; i < btnText.length; i++){
-            buttons[i] = new Button(this);
-            Button btn = buttons[i];
-
-            btn.setLayoutParams(LP);
-            btn.setPadding(10, 0, 10, 0);
-            btn.setText(btnText[i]);
-            if(i == btnText.length - 1) {
-                btn.setBackgroundColor(Color.parseColor("#536DFE"));
+            if(i == btnText.length - 1){
+                buttons[i] = new Button(this, null, R.attr.LastButton);
             }else {
-                btn.setBackgroundColor(Color.parseColor("#8C9EFF"));
+                buttons[i] = new Button(this, null, R.attr.ButtonsStyle);
             }
+            Button btn = buttons[i];
+            btn.setText(btnText[i]);
+
             btn.setId(i);
             btn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -94,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
             });
             LL.addView(btn);
         }
-        //buttons[0] = new Button();
     }
 
     public void createToast(View view){
